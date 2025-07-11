@@ -1,0 +1,34 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Tipo</th>
+            <th>Cantidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img [src]="pizzas[0].image" [alt]="pizzas[0].name" class="pizza-image"></td>
+            <td>{{pizzas[0].name}}</td>
+            <td>${{pizzas[0].price}}</td>
+            <td>{{pizzas[0].type}}</td>
+            <td>{{pizzas[0].quantity}}</td>
+        </tr>
+        <tr>
+            <td><img [src]="pizzas[1].image" [alt]="pizzas[1].name" class="pizza-image"></td>
+            <td>{{pizzas[1].name}}</td>
+            <td>${{pizzas[1].price}}</td>
+            <td>{{pizzas[1].type}}</td>
+            <td>{{pizzas[1].quantity}}</td>
+        </tr>
+        <tr>
+            <td><img [src]="pizzas[2].image" [alt]="pizzas[2].name" class="pizza-image"></td>
+            <td>{{pizzas[2].name}}</td>
+            <td>${{pizzas[2].price}}</td>
+            <td>{{pizzas[2].type}}</td>
+            <td>{{pizzas[2].quantity}}</td>
+        </tr>
+    </tbody>
+</table>
