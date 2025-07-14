@@ -5,19 +5,28 @@
             <th>Nombre</th>
             <th>Precio</th>
             <th>Tipo</th>
+            <th>Cantidad</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let pizza of pizzas" [class.oferta]="pizza.oferta">
-            <td>
-              <img [src]="pizza.imagen" [alt]="pizza.nombre" class="pizza-image">
-            </td>
-            <td>{{pizza.nombre}}</td>
-            <td [class.precio]="pizza.oferta">${{pizza.precio}}</td>
-            <td>{{pizza.tipo}}</td>
-            <td>
-              <button class="btn btn-primary">Agregar al carrito</button>
-            </td>
-        </tr>
+        @for(pizza of pizzas;track pizza.id){
+            
+            <tr [ngClass]="{'oferta': pizza.oferta}"> <!--si usaba if tenia que repetir codigo -->
+                <td>
+                <img [src]="pizza.imagen" [alt]="pizza.nombre" class="pizza-image">
+                </td>
+                <td>{{pizza.nombre}}</td>
+                <td [class.precio]="pizza.oferta">${{pizza.precio}}</td>
+                <td>{{pizza.tipo}}</td>
+                <td>{{pizza.cantidad}}</td>
+                <td>
+                <button class="btn btn-primary" (click)="onAgregarAlCarrito(pizza)">Agregar al carrito</button>
+                </td>
+            </tr>
+        }@empty {
+            <tr>
+                <td colspan="5" class="text-center">No hay pizzas disponibles</td>
+            </tr>
+        }
     </tbody>
 </table>

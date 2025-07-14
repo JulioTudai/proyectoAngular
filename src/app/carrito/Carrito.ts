@@ -1,5 +1,7 @@
+import { Pizza } from '../pizza-list/Pizza';
+
 export interface CarritoItem {
-  nombre: string;
-  precio: number;
+  pizza: Pizza;
   cantidad: number;
+  subtotal?: number; // Opcional, se puede calcular
 }
