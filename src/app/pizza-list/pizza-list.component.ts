@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Pizza } from './Pizza';
 import { CarritoItem } from '../carrito/Carrito';
 
@@ -9,7 +9,13 @@ import { CarritoItem } from '../carrito/Carrito';
   styleUrl: './pizza-list.component.scss'
 })
 export class PizzaListComponent {
-  @Output() agregarAlCarrito = new EventEmitter<CarritoItem>();
+  @Input() pizzasEnCarrito: number[] = [];
+  @Output() agregarAlCarrito = new EventEmitter<Pizza>();
+
+  // Verificar si una pizza ya está en el carrito
+  estaEnCarrito(pizzaId: number): boolean {
+    return this.pizzasEnCarrito.includes(pizzaId);
+  }
   pizzas: Pizza[] = [
     {
       id: 1,
@@ -41,10 +47,8 @@ export class PizzaListComponent {
   ]
 
   onAgregarAlCarrito(pizza: Pizza) {
-    const item: CarritoItem = {
-      pizza: { ...pizza },
-      cantidad: 1
-    };
-    this.agregarAlCarrito.emit(item);
+    if (!this.estaEnCarrito(pizza.id)) {
+      this.agregarAlCarrito.emit(pizza);
+    }
   }
 }

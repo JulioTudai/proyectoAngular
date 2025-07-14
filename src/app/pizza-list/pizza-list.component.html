@@ -20,7 +20,12 @@
                 <td>{{pizza.tipo}}</td>
                 <td>{{pizza.cantidad}}</td>
                 <td>
-                <button class="btn btn-primary" (click)="onAgregarAlCarrito(pizza)">Agregar al carrito</button>
+                <button 
+                    class="btn btn-primary" 
+                    (click)="onAgregarAlCarrito(pizza)"
+                    [disabled]="estaEnCarrito(pizza.id)">
+                    {{ estaEnCarrito(pizza.id) ? 'En el carrito' : 'Agregar al carrito' }}
+                </button>
                 </td>
             </tr>
         }@empty {

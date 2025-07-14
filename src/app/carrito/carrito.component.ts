@@ -38,6 +38,7 @@ export class CarritoComponent {
       item.cantidad--;
     }
   } 
+  //les juro que en estas validaciones no me ayudo chat.... dijo nadie nunca.
   // Valida que solo se ingresen números y teclas de control
   soloNumeros(event: KeyboardEvent): boolean {
     // Permitir teclas de control (backspace, tab, enter, flechas, etc.)
