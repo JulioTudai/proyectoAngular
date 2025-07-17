@@ -8,6 +8,7 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { FormsModule } from '@angular/forms';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { AbautComponent } from './abaut/abaut.component';
+import { InputIntegerComponent } from './input-integer/input-integer.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AbautComponent } from './abaut/abaut.component';
     PizzaListComponent,
     CarritoComponent,
     PedidosComponent,
-    AbautComponent
+    AbautComponent,
+    InputIntegerComponent
   ],
   imports: [
     BrowserModule,
