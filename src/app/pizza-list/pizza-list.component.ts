@@ -26,7 +26,9 @@ export class PizzaListComponent implements OnInit {
 
   agregarACarrito(pizza:Pizza):void{
     this.carrito.agregarACarrito(pizza)
-  }
+    pizza.stock -= pizza.cantidad;
+    pizza.cantidad = 0;
+    }
 
 
 

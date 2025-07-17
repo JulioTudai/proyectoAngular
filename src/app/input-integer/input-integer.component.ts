@@ -10,11 +10,11 @@ export class InputIntegerComponent implements OnInit {
 
   
   constructor() { }
-  @Input() cantidad!: number //hice de todo y por esto es que cambie el proyecto en un momento volvi como 3 commits para atras
+  @Input({ required: true } ) cantidad!: number //hice de todo y por esto es que cambie el proyecto en un momento volvi como 3 commits para atras
                           //pero si no le ponia el signo! que no me parece algo adecuado no me lo toma
                           //y ahora volvia a llegar a la misma parte siguiendo los pasos y otra vez en la misma
                           //que salga lo que tenga que salgar
-  @Input() stock!: number
+  @Input({ required: true }) stock!: number
   @Output() cantidadChange = new EventEmitter<number>();  
   @Output() maxStock = new EventEmitter<string>();
 

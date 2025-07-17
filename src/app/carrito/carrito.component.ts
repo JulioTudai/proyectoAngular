@@ -1,36 +1,25 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { CarritoItem } from './Carrito';
+import { Component, OnInit } from '@angular/core';
 import { CarritoPizzasService } from '../carrito-pizzas.service';
+import { Pizza } from '../pizza-list/Pizza';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-carrito',
   standalone: false,
   templateUrl: './carrito.component.html',
-  styleUrl: './carrito.component.scss'
+  styleUrls: ['./carrito.component.scss']
 })
 export class CarritoComponent implements OnInit {
-  @Input() carritoItms: CarritoItem[] = [];
 
- constructor(private carrito:CarritoPizzasService){}
+
+  carritoList$ :Observable<Pizza[]>;  
+ constructor(private carrito:CarritoPizzasService){
+  this.carritoList$ = this.carrito.carritoList.asObservable();
+ }
 
 
   ngOnInit(): void {
     
   }
 
-  // Calcular subtotal para un ítem
-  getSubtotal(item: CarritoItem): number {
-    return item.precio * item.cantidad;
-  }
-
-  // Calcular total para todos los ítems
-  getTotal(): number {
-    return this.carritoItms.reduce((total, item) => total + this.getSubtotal(item), 0);
-  }
-
-  // Eliminar ítem del carrito
-  removeItem(index: number): void {
-    if (index >= 0 && index < this.carritoItms.length) {
-      this.carritoItms.splice(index, 1);
-    }
-  }
 }
