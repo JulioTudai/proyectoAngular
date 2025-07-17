@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { PizzaListComponent } from './pizza-list/pizza-list.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { FormsModule } from '@angular/forms';
+import { PedidosComponent } from './pedidos/pedidos.component';
+import { AbautComponent } from './abaut/abaut.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PizzaListComponent,
-    CarritoComponent
+    CarritoComponent,
+    PedidosComponent,
+    AbautComponent
   ],
   imports: [
     BrowserModule,

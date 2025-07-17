@@ -58,6 +58,7 @@ export class PizzaListComponent {
         input.value = '1';
       } else {
         pizza.cantidad = nuevaCantidad;
+       
       }
     } else {
       // Si no es un número, mantener el valor anterior
