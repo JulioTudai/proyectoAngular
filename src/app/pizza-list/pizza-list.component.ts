@@ -8,27 +8,61 @@ import { Pizza } from './Pizza';
   styleUrl: './pizza-list.component.scss'
 })
 export class PizzaListComponent {
+
+  restarCantidad(pizza: Pizza): void {
+    if (pizza.cantidad >= 1) {
+      pizza.cantidad--;
+    }
+  }
+
+  sumarCantidad(pizza: Pizza): void {
+    if (pizza.cantidad < pizza.stock) {
+      pizza.cantidad++;
+    }
+  } 
+
+  ingresoTeclado(event, pizza: Pizza): void {
+    let number = parseInt(event.key); 
+    if (number >= 0 && number <= 9) {
+      if (pizza.cantidad >= 1 && pizza.cantidad < pizza.stock) {
+        pizza.cantidad++;
+      } 
+    }
+    else {
+      event.preventDefault();
+    } 
+  }
+
   pizzas: Pizza[] = [
     {
+      id: 1,
       nombre: 'Mozzarella',
       precio: 2500,
       tipo: 'Clásica',
       imagen: "/assets/img/Mozzarella-pizza.jpg",
-      oferta: true
+      oferta: true,
+      stock: 0,
+      cantidad: 0
     },
     {
+      id: 2,
       nombre: 'Napolitana',
       precio: 2800,
       tipo: 'Clásica',
       imagen: "/assets/img/images.jpeg",
-      oferta: false
+      oferta: true,
+      stock: 0,
+      cantidad: 0
     },
     {
+      id: 3,
       nombre: 'Especial',
       precio: 3000,
       tipo: 'Gourmet',
       imagen: "/assets/img/nu04s777Q_720x0__1.jpg",
-      oferta: false
+      oferta: false,
+      stock: 10,
+      cantidad: 0 
     }
   ]
 
