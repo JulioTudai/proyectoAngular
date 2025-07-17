@@ -1,14 +1,21 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CarritoItem } from './Carrito';
-
+import { CarritoPizzasService } from '../carrito-pizzas.service';
 @Component({
   selector: 'app-carrito',
   standalone: false,
   templateUrl: './carrito.component.html',
   styleUrl: './carrito.component.scss'
 })
-export class CarritoComponent {
+export class CarritoComponent implements OnInit {
   @Input() carritoItms: CarritoItem[] = [];
+
+ constructor(private carrito:CarritoPizzasService){}
+
+
+  ngOnInit(): void {
+    
+  }
 
   // Calcular subtotal para un ítem
   getSubtotal(item: CarritoItem): number {

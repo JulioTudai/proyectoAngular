@@ -1,17 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { Pizza } from './Pizza';
-
+import { CarritoPizzasService } from '../carrito-pizzas.service';
 @Component({
   selector: 'app-pizza-list',
   standalone: false,
   templateUrl: './pizza-list.component.html',
   styleUrl: './pizza-list.component.scss'
 })
-export class PizzaListComponent {
+
+
+export class PizzaListComponent implements OnInit {
+
+  
+  constructor(private carrito:CarritoPizzasService) { 
+    
+  }
+  ngOnInit(): void {
+    
+  }
 
   maxStock(mensaje:string){
     alert(mensaje)
   }
+
+
+  agregarACarrito(pizza:Pizza):void{
+    this.carrito.agregarACarrito(pizza)
+  }
+
+
 
   pizzas: Pizza[] = [
     {
