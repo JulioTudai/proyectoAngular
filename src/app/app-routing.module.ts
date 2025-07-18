@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PedidosComponent } from './pedidos/pedidos.component';
-import { AbautComponent } from './abaut/abaut.component'; 
 import { FormComponent } from './form/form.component';
 const routes: Routes = [
   {

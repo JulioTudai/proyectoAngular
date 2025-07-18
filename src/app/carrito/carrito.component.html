@@ -1,17 +1,27 @@
-<div>
+<div class="carrito">
   <h3>Carrito de compras</h3>
   
-  <div *ngIf="(carritoList$ | async) as items">
+  <div *ngIf="(carritoList$ | async) as items; else emptyCart">
     <p>Hay {{ items.length }} productos en el carrito</p>
     
-    <ul>
-      <li *ngFor="let item of items">
-        {{ item?.nombre || 'Sin nombre' }}: {{ item?.cantidad || 0 }}
+    <ul class="lista-productos">
+      <li *ngFor="let item of items" class="producto-item">
+        <span class="nombre-producto">{{ item?.nombre || 'Sin nombre' }}</span>
+        <span class="cantidad-producto">x{{ item?.cantidad || 0 }}</span>
+        <span class="precio-producto">${{ (item?.precio ? (item.precio * (item.cantidad || 0)) : 0) | number:'1.2-2' }}</span>
       </li>
     </ul>
+    
+    <div class="total-container" *ngIf="(total$ | async) as total">
+      <hr>
+      <div class="total">
+        <span>Total a pagar:</span>
+        <span class="monto-total">${{ total | number:'1.2-2' }}</span>
+      </div>
+    </div>
   </div>
   
-  <div *ngIf="!(carritoList$ | async)?.length">
+  <ng-template #emptyCart>
     <p>El carrito está vacío</p>
-  </div>
+  </ng-template>
 </div>

@@ -9,6 +9,9 @@ export class CarritoPizzasService {
   private _carritoList: Pizza[] = [];
   carritoList: BehaviorSubject<Pizza[]> = new BehaviorSubject(this._carritoList);
 
+  vaciarCarrito() {
+    this.carritoList.next([]); // Limpia el carrito
+  }
 
   agregarACarrito(pizza:Pizza){
 
