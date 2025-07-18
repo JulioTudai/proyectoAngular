@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { AbautComponent } from './abaut/abaut.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { InputIntegerComponent } from './input-integer/input-integer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
