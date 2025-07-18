@@ -7,7 +7,6 @@ import { PizzaListComponent } from './pizza-list/pizza-list.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PedidosComponent } from './pedidos/pedidos.component';
-import { AbautComponent } from './abaut/abaut.component';
 import { InputIntegerComponent } from './input-integer/input-integer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './form/form.component';
@@ -18,7 +17,6 @@ import { FormComponent } from './form/form.component';
     PizzaListComponent,
     CarritoComponent,
     PedidosComponent,
-    AbautComponent,
     InputIntegerComponent
   ],
   imports: [
