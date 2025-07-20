@@ -7,10 +7,10 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="['/pedidos']">Pedi ya!</a>
+            <a class="nav-link" [routerLink] ="['pedidos']">Pedi ya!</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"[routerLink]="['/abaut']">Reseña</a>
+            <a class="nav-link" [routerLink] ="['form']">Reseña</a>
           </li>
         </ul>
       </div>
@@ -18,7 +18,7 @@
   </nav>
 <div>
 <div class="container">
-  <router-outlet></router-outlet> 
+   <router-outlet></router-outlet>  
 </div>
 </div>
 <footer>

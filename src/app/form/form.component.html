@@ -1,0 +1,44 @@
+<form [formGroup]="formSIngUp" (Submit)="enviarFormulario()" class="p-3">
+
+    <div class="mb-3">
+      <label for="cliente" class="form-label">Cliente</label>
+      <input [class.invalid]="formSIngUp.get('cliente')?.valid === false"
+        type="text" 
+        id="cliente" 
+        class="form-control" 
+        formControlName="cliente"
+        placeholder="Tu nombre">
+        <p *ngIf="formSIngUp.get('cliente')?.hasError('minlength')">El Nombre debe tener minimo 3 caraceteres</p>
+    </div>
+  
+    <div class="mb-3">
+      <label for="resena" class="form-label">Breve Reseña</label>
+      <textarea [class.invalid]="formSIngUp.get('resena')?.valid=== false" 
+        id="resena" 
+        class="form-control" 
+        rows="3"
+        formControlName="resena"
+        placeholder="Tu opinión..."></textarea>
+        <p *ngIf="formSIngUp.get('resena')?.hasError('required')">La reseña es requerida</p>
+        <p *ngIf="formSIngUp.get('resena')?.hasError('minlength')">La reseña debe tener minimo 3 caracteres y maximo 150</p>
+    </div>
+  
+    <div class="mb-3">
+      <label class="form-label">Valoración</label>
+      <div class="form-check" *ngFor="let estrella of [5,4,3,2,1]">
+        <input 
+          class="form-check-input" 
+          type="radio" 
+          [value]="estrella" 
+          formControlName="valoracion"
+          [id]="'estrella' + estrella">
+        <label class="form-check-label" [for]="'estrella' + estrella">
+          {{ estrella }} estrella{{ estrella > 1 ? 's' : '' }}
+        </label>
+      </div>
+    </div>
+  
+    <button [disabled]="formSIngUp.invalid"  type="submit" class="btn btn-primary">Enviar</button>
+  
+  </form>
+  

@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { AbautComponent } from './abaut/abaut.component';
-import { PedidosComponent } from './pedidos/pedidos.component'; 
+import { PedidosComponent } from './pedidos/pedidos.component';
+import { FormComponent } from './form/form.component';
 const routes: Routes = [
   {
-    path: 'pedidos',
-    component: PedidosComponent
+    path:'',
+    redirectTo:'pedidos',
+    pathMatch:'full'
   },
   {
-    path: 'abaut',
-    component: AbautComponent
+    path:'pedidos',
+    component:PedidosComponent
   },
   {
-    path: '',
-    component: AppComponent
-  }
+    path:'form',
+    component:FormComponent
+  } 
 ];
 
 @NgModule({

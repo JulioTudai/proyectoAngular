@@ -5,29 +5,34 @@
             <th>Nombre</th>
             <th>Precio</th>
             <th>Tipo</th>
-            <th>Cantidad</th>
+            <th>Stock</th>
+            <th>Reservar</th>
         </tr>
     </thead>
     <tbody>
-        @for(pizza of pizzas;track pizza.id){
-            
-            <tr [ngClass]="{'oferta': pizza.oferta}"> <!--si usaba if tenia que repetir codigo -->
-                <td>
-                <img [src]="pizza.imagen" [alt]="pizza.nombre" class="pizza-image">
-                </td>
-                <td>{{pizza.nombre}}</td>
-                <td [class.precio]="pizza.oferta">${{pizza.precio}}</td>
-                <td>{{pizza.tipo}}</td>
-                <td>{{pizza.cantidad}}</td>
-                <td>
-                <button 
-                    class="btn btn-primary" 
-                    (click)="onAgregarAlCarrito(pizza)"
-                    [disabled]="estaEnCarrito(pizza.id)">
-                    {{ estaEnCarrito(pizza.id) ? 'En el carrito' : 'Agregar al carrito' }}
-                </button>
-                </td>
-            </tr>
+        @for (pizza of pizzas; track pizza.id) {
+        <tr [class.oferta]="pizza.oferta && pizza.stock > 0">
+            <td>
+              <img [src]="pizza.imagen" [alt]="pizza.nombre" class="pizza-image">
+            </td>
+            <td>{{pizza.nombre}}</td>
+            <td [class.precio]="pizza.oferta">${{pizza.precio | currency:'USD':'symbol':'1.2-2' }}</td>
+            <td>{{pizza.tipo}}</td>
+            @if (pizza.stock > 0) {
+                <td>{{pizza.stock}}</td>
+            }
+            @else {
+              <td>Agotado</td>
+            }
+            <td class="align-middle">
+             <app-input-integer [(cantidad)]="pizza.cantidad" [stock] = "pizza.stock"(maxStock)="maxStock($event)"></app-input-integer>  
+            </td>
+            <td class="align-middle">
+              <button [disabled]="pizza.stock === 0 || pizza.cantidad === 0" (click)="agregarACarrito(pizza)" class="btn btn-primary">
+                <i class="bi bi-cart-plus me-1"></i> Agregar
+              </button>
+            </td>
+        </tr>
         }@empty {
             <tr>
                 <td colspan="5" class="text-center">No hay pizzas disponibles</td>

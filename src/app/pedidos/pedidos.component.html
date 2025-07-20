@@ -1,11 +1,8 @@
-<div class="row">
-    <div class="col-8">
-        <app-pizza-list 
-            (agregarAlCarrito)="onAgregarAlCarrito($event)"
-            [pizzasEnCarrito]="pizzasEnCarrito">
-        </app-pizza-list>
+<div class="container">
+    <div class="pizza-list">
+        <app-pizza-list></app-pizza-list>
     </div>
-    <div class="col-4">
-      <app-carrito [carritoItms]="carritoItems"></app-carrito>
+    <div class="carrito-container">
+        <app-carrito></app-carrito>
     </div>
 </div>
