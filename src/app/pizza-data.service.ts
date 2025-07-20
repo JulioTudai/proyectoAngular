@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Pizza } from './pizza-list/Pizza';
 import { tap } from 'rxjs/operators';
 
-const URL = 'https://6879c0a3abb83744b7e9e3d5.mockapi.io/api/v1/pizzas/pizza'
+const URL = 'https://6879c0a3abb83744b7e9e3d5.mockapi.io/api/v1/pizzas/pizza' // mokapi pizzas
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class PizzaDataService {
   public getAll():Observable<Pizza[]> {
 
 
-    return this.http.get<Pizza[]>(URL)
+    return this.http.get<Pizza[]>(URL)// por lo que entiendo las pipes, son similares a las anotaciones lamda
     .pipe(
       tap((pizzas: Pizza[]) =>{
         pizzas.forEach(pizza => {

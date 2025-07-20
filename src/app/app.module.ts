@@ -23,7 +23,8 @@ import { FormComponent } from './form/form.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
+    HttpClientModule,// me aparece como deprecado, pero busque y no me dice que esta deprecado y anda igual
+    //como toda ley de la programacion, si anda no se toca.
     ReactiveFormsModule,
     FormComponent,
   ],

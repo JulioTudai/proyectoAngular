@@ -40,6 +40,7 @@ export class InputIntegerComponent implements OnInit {
     
   
     //les juro que en estas validaciones no me ayudo chat.... dijo nadie nunca.
+    //pero queria que quede lo mejor posible y que no se pueda introducir nada raro
     // Valida que solo se ingresen números y teclas de control
     soloNumeros(event: KeyboardEvent): boolean {
       // Permitir teclas de control (backspace, tab, enter, flechas, etc.)

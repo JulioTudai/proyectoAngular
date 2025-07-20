@@ -16,7 +16,6 @@ export class CarritoComponent implements OnInit {
   constructor(private carrito: CarritoPizzasService) {
     this.carritoList$ = this.carrito.carritoList.asObservable();
     
-    // Calcular el total basado en los elementos del carrito
     this.total$ = this.carritoList$.pipe(
       map(items => {
         return items.reduce((total, item) => {
@@ -27,6 +26,6 @@ export class CarritoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Inicialización si es necesaria
+  
   }
 }
