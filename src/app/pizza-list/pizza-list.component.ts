@@ -40,10 +40,5 @@ export class PizzaListComponent implements OnInit {
 
 
   pizzas: Pizza[] = [];
-
-  onAgregarAlCarrito(pizza: Pizza) {
-    if (!this.estaEnCarrito(pizza.id)) {
-      this.agregarAlCarrito.emit(pizza);
-    }
+  
   }
-}

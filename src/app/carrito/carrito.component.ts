@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CarritoPizzasService } from '../carrito-pizzas.service';
 import { Pizza } from '../pizza-list/Pizza';
 import { Observable, map } from 'rxjs';
+import { CarritoItem } from './Carrito';
 
 @Component({
   selector: 'app-carrito',
